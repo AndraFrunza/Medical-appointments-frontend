@@ -1,0 +1,15 @@
+.example-card {
+  height: 500px;
+  max-width: 400px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.body-card {
+  float: left;
+}
+
+.example-card:hover {
+  box-shadow: 0 0 4px 3px rgba(0, 140, 186, 0.5);
+}

@@ -6,12 +6,12 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
 })
-export class CartComponent implements OnInit {
+export class CartComponent {
   submitStatus: boolean = false;
   constructor(private formBuilder: FormBuilder) {}
 
   registerForm: FormGroup = this.formBuilder.group({
-    fullName: [, { validators: [Validators.required], updateOn: 'change' }],
+    // fullName: [, { validators: [Validators.required], updateOn: 'change' }],
     email: [
       ,
       {
@@ -19,39 +19,37 @@ export class CartComponent implements OnInit {
         updateOn: 'change',
       },
     ],
-    phone: [, { updateOn: 'change' }],
+    // phone: [, { updateOn: 'change' }],
     password: [, { validators: [Validators.required], updateOn: 'change' }],
-    role: [
-      'jobSeeker',
-      { validators: [Validators.required], updateOn: 'change' },
-    ],
+    role: ['user', { validators: [Validators.required], updateOn: 'change' }],
   });
 
-  ngOnInit() {
-    this.setPhoneValidation();
-  }
+  // ngOnInit() {
+  //   this.setPhoneValidation();
+  // }
 
-  setPhoneValidation() {
-    const phoneControl = this.registerForm.get('phone');
+  // Validare număr de telefon
+  // setPhoneValidation() {
+  //   const phoneControl = this.registerForm.get('phone');
 
-    // if (phoneControl != null) {
-    phoneControl?.setValidators([
-      Validators.pattern('^[0-9]*$'),
-      Validators.required,
-    ]);
+  // if (phoneControl != null) {
+  //   phoneControl?.setValidators([
+  //     Validators.pattern('^[0-9]*$'),
+  //     Validators.required,
+  //   ]);
 
-    this.registerForm.get('role')?.valueChanges.subscribe((role: string) => {
-      if (role == 'jobSeeker') {
-        phoneControl?.setValidators([
-          Validators.pattern('^[0-9]*$'),
-          Validators.required,
-        ]);
-      } else if (role == 'employee') {
-        phoneControl?.setValidators([Validators.pattern('^[0-9]*$')]);
-      }
-      phoneControl?.updateValueAndValidity();
-    });
-  }
+  //   this.registerForm.get('role')?.valueChanges.subscribe((role: string) => {
+  //     if (role == 'user') {
+  //       phoneControl?.setValidators([
+  //         Validators.pattern('^[0-9]*$'),
+  //         Validators.required,
+  //       ]);
+  //     } else if (role == 'medic') {
+  //       phoneControl?.setValidators([Validators.pattern('^[0-9]*$')]);
+  //     }
+  //     phoneControl?.updateValueAndValidity();
+  //   });
+  // }
   // }
 
   submitForm() {
