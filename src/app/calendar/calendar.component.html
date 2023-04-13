@@ -1,0 +1,62 @@
+<div>
+  <img
+    class="background-picture"
+    src="assets/Pictures/blur-hospital-1.jpg"
+    alt="Background Picture"
+  />
+</div>
+
+<!-- SELECTEAZA CABINET -->
+<div class="div1">
+  <mat-form-field appearance="fill">
+    <mat-label>Selectează cabinet</mat-label>
+    <mat-select [(value)]="selected">
+      <mat-option>None</mat-option>
+      <mat-option value="option1">Option 1</mat-option>
+      <mat-option value="option2">Option 2</mat-option>
+      <mat-option value="option3">Option 3</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<!-- SELECTEAZA MEDIC -->
+<div class="div1">
+  <mat-form-field appearance="fill">
+    <mat-label>Selectează medic</mat-label>
+    <mat-select [(value)]="selected">
+      <mat-option>None</mat-option>
+      <mat-option value="option1">Option 1</mat-option>
+      <mat-option value="option2">Option 2</mat-option>
+      <mat-option value="option3">Option 3</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<!--CALENDAR-->
+<div class="div_calendar">
+  <mat-card class="demo-inline-calendar-card">
+    <mat-calendar [(selected)]="selected"></mat-calendar>
+  </mat-card>
+  <button routerLink="/selectare-data" mat-raised-button color="warn">
+    Selected date: {{ selected }}
+  </button>
+
+  <!-- LEGENDA CALENDAR -->
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-subtitle>Disponibilitate zile</mat-card-subtitle>
+      <mat-card-title>Legendă</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <ul>
+        <li style="color: rgb(0, 188, 0)">Zile disponibile</li>
+        <li style="color: red">Zile indisponibile</li>
+        <li style="color: rgb(58, 58, 231)">Zile libere</li>
+      </ul>
+    </mat-card-content>
+    <mat-card-actions> </mat-card-actions>
+    <mat-card-footer>
+      <mat-progress-bar [color]="color" mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+  </mat-card>
+</div>

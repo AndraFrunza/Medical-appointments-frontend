@@ -4,15 +4,32 @@
 
 <mat-toolbar>
   <a [routerLink]="['/']">
-    <span>MILLENIUM</span>
+    <!-- <span>MILLENIUM</span> -->
+    <span>
+      <img
+        class="logo"
+        src="assets/Pictures/logo.png"
+        alt="Background Picture"
+      />
+    </span>
   </a>
 
   <span class="example-spacer"></span>
-  <button routerLink="/" mat-button>Echipa</button>
-  <button routerLink="/" mat-button>Contact</button>
+  <button routerLink="/echipa" mat-button>Echipa</button>
+  <button routerLink="/contact" mat-button>Contact</button>
   <span class="example-center"></span>
   <button routerLink="/cart" mat-button>Logare</button>
+  <button routerLink="/calendar" mat-button>Calendar</button>
+  <button routerLink="/tabel-medic" mat-button>Tabel Medic</button>
 
   <span class="example-spacer"></span>
-  <button routerLink="/" mat-raised-button color="warn">Programare</button>
+  <span class="example-spacer"></span>
+  <button
+    (click)="openDialog()"
+    [disabled]="buttonDisabled"
+    mat-raised-button
+    color="warn"
+  >
+    Programare
+  </button>
 </mat-toolbar>

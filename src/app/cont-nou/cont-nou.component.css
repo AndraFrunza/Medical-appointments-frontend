@@ -1,0 +1,17 @@
+.login-doctor-picture {
+  position: absolute;
+  width: 1600px;
+  height: 687px;
+  margin-left: -200px;
+}
+
+.form {
+  text-align: center;
+  width: 500px;
+  margin-left: 350px;
+  background-color: #abd2f1;
+}
+
+.color {
+  color: rgba(0, 0, 0, 0.55);
+}

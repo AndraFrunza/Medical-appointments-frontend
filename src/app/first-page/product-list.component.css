@@ -1,129 +1,75 @@
 .clinica {
-  /* Clinica */
   position: absolute;
-  width: 500px;
-  height: 100px;
   left: 45px;
-  /* top: 223px; */
+  top: 120px;
 
   font-family: 'Inter';
-  font-style: normal;
-  font-weight: 300;
-  font-size: 90px;
-  line-height: 30px;
-  /* or 22% */
-
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 0.31px;
+  font-size: 105px;
+  letter-spacing: 0.1px;
 
   color: #000000;
 }
 
 .millenium {
-  /* MILLENIUM */
-
   position: absolute;
-  width: 700px;
-  height: 22px;
   left: 45px;
-  top: 210px;
+  top: 225px;
 
   font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400; /*grosime*/
-  font-size: 90px;
-  line-height: 30px;
-  /* identical to box height, or 22% */
-
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: -0.31px;
+  font-size: 100px;
+  letter-spacing: 0.1px;
 
   color: #000000;
 }
 
-.first-text1 {
+.second-text {
   position: absolute;
-  width: 599px;
-  height: 157px;
   left: 45px;
-  top: 310px;
+  top: 345px;
 
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 340;
-  font-size: 18px;
-  line-height: 30px;
-  /* or 150% */
+  font-size: 33px;
+  letter-spacing: -0.1px;
 
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: -0.31px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.first-text1 {
+  position: absolute;
+  left: 45px;
+  top: 390px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-size: 20px;
+  letter-spacing: -0.1px;
 
   color: rgba(0, 0, 0, 0.55);
 }
 
 .first-text2 {
   position: absolute;
-  width: 599px;
-  height: 157px;
   left: 45px;
-  top: 350px;
+  top: 420px;
 
+  text-align: center;
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 340;
   font-size: 18px;
-  line-height: 30px;
-  /* or 150% */
-
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: -0.31px;
+  letter-spacing: -0.1px;
 
   color: rgba(0, 0, 0, 0.55);
 }
 
-.second-text {
+img {
   position: absolute;
-  width: 637px;
-  height: 93px;
-  left: 45px;
-  top: 430px;
-
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 33px;
-  line-height: 26px;
-  /* or 74% */
-
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: -0.31px;
-
-  color: rgba(0, 0, 0, 0.65);
+  width: 1600px;
+  height: 687px;
+  margin-left: -200px;
 }
 
-.medic-main-picture {
-  float: right;
-  margin-left: 700px;
-  margin-top: 30px;
+.button {
+  top: 440px;
+  left: 118px;
 }
-
-/* .blue-shapes {
-  float: right;
-  position: absolute;
-  width: 1000px;
-  height: 100px;
-  left: 300px;
-  top: 650px;
-
-  background: #abd2f1;
-} */

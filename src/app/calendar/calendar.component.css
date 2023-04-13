@@ -1,0 +1,31 @@
+.demo-inline-calendar-card {
+  width: 300px;
+}
+
+.div1 {
+  display: inline-block;
+  margin-top: 40px;
+  margin-left: 30px;
+}
+
+.div_calendar {
+  float: right;
+  margin-top: 40px;
+  margin-left: 100px;
+}
+
+button {
+  margin-top: 20px;
+}
+
+.background-picture {
+  position: absolute;
+  width: 1600px;
+  height: 687px;
+  margin-left: -200px;
+}
+
+.example-card {
+  max-width: 300px;
+  margin-top: 20px;
+}

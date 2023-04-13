@@ -126,7 +126,7 @@ app-top-bar h1 {
 
 /* Checkout Cart, Shipping Prices */
 
-.cart-item,
+/* .cart-item,
 .shipping-item {
   width: 100%;
   min-width: 400px;
@@ -138,4 +138,4 @@ app-top-bar h1 {
   margin-bottom: 8px;
   border-radius: 2px;
   background-color: #eeeeee;
-}
+} */

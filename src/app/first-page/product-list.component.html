@@ -1,38 +1,23 @@
-<!-- <div *ngFor="let product of products"> 
-  <h3>
-    <a
-      [title]="product.name + ' details'"
-      [routerLink]="['/products', product.id]"
-    >
-      {{ product.name }}
-    </a>
-  </h3>
-
-  <p *ngIf="product.description">Description: {{ product.description }}</p>
-
-  <button mat-raised-button color="accent" (click)="share()">Share</button>
-
-  <app-product-alerts [product]="product" (notify)="onNotify()">
-  </app-product-alerts>
-</div>-->
 <div>
-  <div class="medic-main-picture">
-    <img src="assets/Pictures/main-page-picture.jpg" alt="Main Page Picture" />
-  </div>
-  <div class="blue-shapes"></div>
-  <!-- <img src="assets/Pictures/blue-shapes.jpg" alt="Main Page Picture" /> -->
   <div>
-    <p class="clinica">Clinica</p>
-    <p class="millenium">MILLENIUM</p>
-    <div>
-      <p class="first-text1">
-        Efectuează o programare la una dintre cele mai bune clinici.
-      </p>
-      <p class="first-text2">
-        Echipa noastră de medici este pregatită să îți redea din nou
-        <br />zâmbetul.
-      </p>
-    </div>
-    <p class="second-text">Ceea ce facem, facem din inimă!</p>
+    <img src="assets/Pictures/blur-hospital-4.jpg" alt="Main Page Picture" />
   </div>
+
+  <p class="clinica">Clinica</p>
+  <p class="millenium">MILLENIUM</p>
+  <div>
+    <p class="second-text">Ceea ce facem, facem din inimă!</p>
+    <p class="first-text1">
+      Efectuează o programare la una dintre cele mai bune clinici.
+    </p>
+    <p class="first-text2">
+      Echipa noastră de medici este pregatită să îți redea din nou pofta
+      <br />
+      de viață.
+    </p>
+  </div>
+
+  <button routerLink="/cont-nou" class="button" mat-raised-button color="warn">
+    Creeaza cont!
+  </button>
 </div>
