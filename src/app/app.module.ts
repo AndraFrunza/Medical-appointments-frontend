@@ -11,7 +11,6 @@ import { ProductAlertsComponent } from './product-alerts/product-alerts.componen
 import { ProductDetailsComponent } from './main-page/product-details.component';
 import { CartComponent } from './logare/cart.component';
 import { ContNouComponent } from './cont-nou/cont-nou.component';
-import { ContNouComponent } from './cont-nou/cont-nou.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -22,8 +21,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatGridListModule } from '@angular/material/grid-list';
 
@@ -102,7 +99,6 @@ import { MatTableModule } from '@angular/material/table';
     TabelMedicComponent,
   ],
   bootstrap: [AppComponent],
-  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
 })
 export class AppModule {}
