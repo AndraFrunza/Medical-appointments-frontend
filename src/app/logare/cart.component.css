@@ -18,3 +18,17 @@
 .color {
   color: rgba(0, 0, 0, 0.55);
 }
+
+.form {
+  text-align: center;
+  width: 500px;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  margin-left: 350px;
+  margin-top: 20px;
+  background-color: #abd2f1;
+}
+
+.color {
+  color: rgba(0, 0, 0, 0.55);
+}
