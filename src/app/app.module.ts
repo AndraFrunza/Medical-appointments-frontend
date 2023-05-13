@@ -39,6 +39,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DialogProgramareComponent } from './dialog-programare/dialog-programare.component';
 import { TabelMedicComponent } from './tabel-medic/tabel-medic.component';
 import { MatTableModule } from '@angular/material/table';
+import { AdminTabelPacientiComponent } from './admin-tabel-pacienti/admin-tabel-pacienti.component';
+import { AdminTabelMediciComponent } from './admin-tabel-medici/admin-tabel-medici.component';
+import { AdminTabelAdminiComponent } from './admin-tabel-admini/admin-tabel-admini.component';
 
 // import { AgmCoreModule } from '@agm/core';
 
@@ -58,9 +61,9 @@ import { MatTableModule } from '@angular/material/table';
       { path: 'selectare-data', component: SelectareDataComponent },
       { path: 'dialog-programare', component: DialogProgramareComponent },
       { path: 'tabel-medic', component: TabelMedicComponent },
-      // AgmCoreModule.forRoot({
-      //   apiKey: 'AIzaSyDI0djhTT0sYYAOt8U1F2oaysjHy53DG2s',
-      // }),
+      { path: 'admin-tabel-pacienti', component: AdminTabelPacientiComponent },
+      { path: 'admin-tabel-medici', component: AdminTabelMediciComponent },
+      { path: 'admin-tabel-admini', component: AdminTabelAdminiComponent },
     ]),
     MatButtonModule,
     MatToolbarModule,
@@ -97,6 +100,9 @@ import { MatTableModule } from '@angular/material/table';
     SelectareDataComponent,
     DialogProgramareComponent,
     TabelMedicComponent,
+    AdminTabelPacientiComponent,
+    AdminTabelMediciComponent,
+    AdminTabelAdminiComponent,
   ],
   bootstrap: [AppComponent],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],

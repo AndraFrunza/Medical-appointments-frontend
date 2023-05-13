@@ -66,7 +66,7 @@ export class SelectareDataComponent implements OnInit {
     ]);
 
     this.registerForm.get('role')?.valueChanges.subscribe((role: string) => {
-      if (role == 'user') {
+      if (role == 'patient') {
         phoneControl?.setValidators([
           Validators.pattern('^[0-9]*$'),
           Validators.required,

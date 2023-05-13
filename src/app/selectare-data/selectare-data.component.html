@@ -12,7 +12,9 @@
     <form [formGroup]="registerForm" (submit)="submitForm()">
       <!-- choosing the role -->
       <mat-radio-group name="account_type" formControlName="role">
-        <mat-radio-button class="mx-2" value="user"> User </mat-radio-button>
+        <mat-radio-button class="mx-2" value="patient">
+          Pacient
+        </mat-radio-button>
       </mat-radio-group>
       <br />
       <!-- Programare pt mine, alta persoana -->

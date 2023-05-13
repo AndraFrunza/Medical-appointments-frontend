@@ -32,3 +32,7 @@
 .color {
   color: rgba(0, 0, 0, 0.55);
 }
+
+mat-form-field {
+  height: 85px;
+}

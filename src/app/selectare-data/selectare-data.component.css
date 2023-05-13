@@ -15,3 +15,7 @@
   height: 1100px;
   margin-left: -200px;
 }
+
+mat-form-field {
+  height: 85px;
+}

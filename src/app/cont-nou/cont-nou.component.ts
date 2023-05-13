@@ -8,10 +8,17 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 })
 export class ContNouComponent implements OnInit {
   submitStatus: boolean = false;
+
   constructor(private formBuilder: FormBuilder) {}
 
   registerForm: FormGroup = this.formBuilder.group({
-    fullName: [, { validators: [Validators.required], updateOn: 'change' }],
+    firstName: [, { validators: [Validators.required], updateOn: 'change' }],
+    lastName: [, { validators: [Validators.required], updateOn: 'change' }],
+    specialization: [
+      ,
+      { validators: [Validators.required], updateOn: 'change' },
+    ],
+    cabinet: [, { validators: [Validators.required], updateOn: 'change' }],
     email: [
       ,
       {
@@ -39,7 +46,7 @@ export class ContNouComponent implements OnInit {
     ]);
 
     this.registerForm.get('role')?.valueChanges.subscribe((role: string) => {
-      if (role == 'user') {
+      if (role == 'patient' || role == 'doctor') {
         phoneControl?.setValidators([
           Validators.pattern('^[0-9]*$'),
           Validators.required,
@@ -53,5 +60,13 @@ export class ContNouComponent implements OnInit {
   submitForm() {
     console.log(this.registerForm.valid);
     this.submitStatus = true;
+  }
+
+  get isPatientSelected() {
+    return this.registerForm.get('role')?.value === 'patient';
+  }
+
+  get isDoctorSelected() {
+    return this.registerForm.get('role')?.value === 'doctor';
   }
 }
