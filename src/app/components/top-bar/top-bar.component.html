@@ -4,7 +4,6 @@
 
 <mat-toolbar>
   <a [routerLink]="['/']">
-    <!-- <span>MILLENIUM</span> -->
     <span>
       <img
         class="logo"
@@ -15,20 +14,21 @@
   </a>
 
   <span class="example-spacer"></span>
-  <button routerLink="/echipa" mat-button>Echipa</button>
-  <button routerLink="/contact" mat-button>Contact</button>
+  <button *ngIf="isPatient" routerLink="/echipa" mat-button>Echipa</button>
+  <button *ngIf="isPatient" routerLink="/contact" mat-button>Contact</button>
   <span class="example-center"></span>
-  <button routerLink="/cart" mat-button>Logare</button>
-  <button routerLink="/calendar" mat-button>Calendar</button>
-  <button routerLink="/tabel-medic" mat-button>Tabel Medic</button>
 
-  <button routerLink="/admin-tabel-medici" mat-button>
+  <button *ngIf="isPatient" routerLink="/calendar" mat-button>Calendar</button>
+  <button *ngIf="isAdmin" routerLink="/tabel-medic" mat-button>
+    Tabel Medic
+  </button>
+  <button *ngIf="isAdmin" routerLink="/admin-tabel-medici" mat-button>
     Admin Tabel Medici
   </button>
-  <button routerLink="/admin-tabel-pacienti" mat-button>
+  <button *ngIf="isAdmin" routerLink="/admin-tabel-pacienti" mat-button>
     Admin Tabel Pacienti
   </button>
-  <button routerLink="/admin-tabel-admini" mat-button>
+  <button *ngIf="isAdmin" routerLink="/admin-tabel-admini" mat-button>
     Admin Tabel Admini
   </button>
 
@@ -42,4 +42,7 @@
   >
     Programare
   </button>
+
+  <button *ngIf="!user" routerLink="/cart" mat-button>Logare</button>
+  <button *ngIf="user" (click)="logout()" mat-button>Delogare</button>
 </mat-toolbar>
