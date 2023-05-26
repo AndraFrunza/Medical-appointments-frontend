@@ -38,6 +38,7 @@ import { AuthGuard } from 'src/app/helpers/auth.guard';
 import { Role } from 'src/app/models/role';
 import { JwtInterceptor } from 'src/app/helpers/jwt.interceptor';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 const roles: Role[] = [
   {
@@ -108,6 +109,7 @@ const roles: Role[] = [
     MatDatepickerModule,
     MatSelectModule,
     MatDialogModule,
+    MatCheckboxModule,
   ],
   declarations: [
     AppComponent,

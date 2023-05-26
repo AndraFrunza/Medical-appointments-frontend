@@ -10,11 +10,14 @@
 <div class="div1">
   <mat-form-field appearance="fill">
     <mat-label>Selectează cabinet</mat-label>
-    <mat-select [(value)]="selected">
-      <mat-option>None</mat-option>
-      <mat-option value="option1">Option 1</mat-option>
-      <mat-option value="option2">Option 2</mat-option>
-      <mat-option value="option3">Option 3</mat-option>
+    <mat-select
+      [(ngModel)]="selectedCabinet"
+      (selectionChange)="cabinetSelected($event)"
+    >
+      <mat-option>Niciun cabinet</mat-option>
+      <mat-option *ngFor="let cabinet of cabinets" [value]="cabinet.id">{{
+        cabinet.name
+      }}</mat-option>
     </mat-select>
   </mat-form-field>
 </div>
@@ -23,11 +26,11 @@
 <div class="div1">
   <mat-form-field appearance="fill">
     <mat-label>Selectează medic</mat-label>
-    <mat-select [(value)]="selected">
-      <mat-option>None</mat-option>
-      <mat-option value="option1">Option 1</mat-option>
-      <mat-option value="option2">Option 2</mat-option>
-      <mat-option value="option3">Option 3</mat-option>
+    <mat-select [(ngModel)]="selectedDoctor">
+      <mat-option>Niciun doctor</mat-option>
+      <mat-option *ngFor="let doctor of doctors" [value]="doctor"
+        >{{ doctor.firstName }} {{ doctor.lastName }}</mat-option
+      >
     </mat-select>
   </mat-form-field>
 </div>
@@ -58,5 +61,132 @@
     <mat-card-footer>
       <!-- <mat-progress-bar [color]="color" mode="indeterminate"></mat-progress-bar> -->
     </mat-card-footer>
+  </mat-card>
+</div>
+<!-- Selecteaza ora programarii -->
+<mat-form-field appearance="fill">
+  <mat-label>Selectează ora programării</mat-label>
+  <mat-select [(ngModel)]="selectedHour">
+    <mat-option *ngFor="let hour of hours" [value]="hour.value">
+      {{ hour.viewValue }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<br />
+<!-- <div>
+  <img
+    class="selecteaza-ora"
+    src="assets/Pictures/selecteaza-ora.jpg"
+    alt="Login Doctor Picture"
+  />
+</div> -->
+
+<div class="container pt-5">
+  <mat-card class="form">
+    <h2 class="h2">Alege ora și completează câmpurile</h2>
+    <form [formGroup]="registerForm" (submit)="submitForm()">
+      <!-- choosing the role -->
+
+      <br />
+      <!-- Programare pt mine, alta persoana -->
+      <section class="example-section">
+        <mat-checkbox class="example-margin" [color]="task.color"
+          >Programare pentru altă persoană</mat-checkbox
+        >
+      </section>
+
+      <!-- Simptome -->
+      <mat-form-field appearance="fill">
+        <mat-label>Simptome</mat-label>
+        <textarea matInput formControlName="symptoms"></textarea>
+      </mat-form-field>
+      <br />
+      <!-- Full Name -->
+      <mat-form-field class="col-5 mt-3 mx-auto">
+        <mat-label>Nume și prenume</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="fullName"
+          placeholder="Ex. Frunză Andra"
+        />
+        <mat-error *ngIf="registerForm.get('fullName')?.hasError('required')">
+          Introduceți <strong>numele și prenumele</strong>
+        </mat-error>
+      </mat-form-field>
+      <br />
+      <!-- phone number -->
+      <mat-form-field class="col-5 mb-2 mx-auto">
+        <mat-label>Telefon</mat-label>
+        <input type="text" matInput formControlName="phone" />
+        <mat-error *ngIf="registerForm.get('phone')?.hasError('required')">
+          Introduceți <strong>numărul de telefon</strong>
+        </mat-error>
+      </mat-form-field>
+      <br />
+      <!-- Email -->
+      <mat-form-field class="col-5 mb-2 mx-auto">
+        <mat-label>Email</mat-label>
+        <input
+          type="email"
+          matInput
+          formControlName="email"
+          placeholder="Ex. mail@gmail.com"
+        />
+        <mat-error
+          *ngIf="
+            registerForm.get('email')?.hasError('email') &&
+            !registerForm.get('email')?.hasError('required')
+          "
+        >
+          Vă rugăm introduceți o adresă de email validă
+        </mat-error>
+        <mat-error *ngIf="registerForm.get('email')?.hasError('required')">
+          Introduceți <strong>adresa de email</strong>
+        </mat-error>
+      </mat-form-field>
+      <br />
+      <!-- Alege data nasterii -->
+      <mat-form-field appearance="fill">
+        <mat-label>Alege data nașterii</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          formControlName="dateOfBirth"
+        />
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <br />
+      <!-- Greutate -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Greutate (kg)</mat-label>
+        <input matInput placeholder="Ex. 52.8" formControlName="weight" />
+      </mat-form-field>
+      <br />
+      <!-- Inaltime -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Înălțime (cm)</mat-label>
+        <input matInput placeholder="Ex. 1.80" formControlName="height" />
+      </mat-form-field>
+      <br />
+      <!-- Submit button -->
+      <button
+        [disabled]="!registerForm.valid"
+        mat-flat-button
+        color="primary"
+        type="submit"
+        class="col-3 mt-2 mb-3"
+      >
+        Submit
+      </button>
+      <br />
+      <ng-template [ngIf]="submitStatus">
+        <span>Programarea a fost creată cu succes!</span>
+      </ng-template>
+    </form>
   </mat-card>
 </div>

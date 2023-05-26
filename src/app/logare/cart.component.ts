@@ -31,34 +31,6 @@ export class CartComponent {
     role: ['user', { validators: [Validators.required], updateOn: 'change' }],
   });
 
-  // ngOnInit() {
-  //   this.setPhoneValidation();
-  // }
-
-  // Validare număr de telefon
-  // setPhoneValidation() {
-  //   const phoneControl = this.registerForm.get('phone');
-
-  // if (phoneControl != null) {
-  //   phoneControl?.setValidators([
-  //     Validators.pattern('^[0-9]*$'),
-  //     Validators.required,
-  //   ]);
-
-  //   this.registerForm.get('role')?.valueChanges.subscribe((role: string) => {
-  //     if (role == 'user') {
-  //       phoneControl?.setValidators([
-  //         Validators.pattern('^[0-9]*$'),
-  //         Validators.required,
-  //       ]);
-  //     } else if (role == 'medic') {
-  //       phoneControl?.setValidators([Validators.pattern('^[0-9]*$')]);
-  //     }
-  //     phoneControl?.updateValueAndValidity();
-  //   });
-  // }
-  // }
-
   submitForm() {
     if (this.loginForm.valid) {
       this.authenticationService
