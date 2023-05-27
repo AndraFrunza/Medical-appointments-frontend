@@ -131,6 +131,7 @@ const roles: Role[] = [
     EchipaComponent,
     ContactComponent,
     CalendarComponent,
+    AdminTabelAdminiComponent,
   ],
   bootstrap: [AppComponent],
   providers: [
