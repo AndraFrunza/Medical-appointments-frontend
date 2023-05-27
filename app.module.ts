@@ -28,7 +28,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { CalendarComponent } from 'src/app/calendar/calendar.component';
 import { EchipaComponent } from 'src/app/echipa/echipa.component';
 import { ProductListComponent } from 'src/app/first-page/product-list.component';
-import { ProductDetailsComponent } from 'src/app/main-page/product-details.component';
 import { CartComponent } from 'src/app/logare/cart.component';
 import { ContNouComponent } from 'src/app/cont-nou/cont-nou.component';
 import { ContactComponent } from 'src/app/contact/contact.component';
@@ -67,12 +66,12 @@ const roles: Role[] = [
     MatNativeDateModule,
     RouterModule.forRoot([
       { path: '', component: ProductListComponent }, //prima pagina
-      {
-        path: 'products/:productId',
-        component: ProductDetailsComponent,
-        canActivate: [AuthGuard],
-        data: { roles: [roles[0]] },
-      },
+      // {
+      //   path: 'products/:productId',
+      //   component: ProductDetailsComponent,
+      //   canActivate: [AuthGuard],
+      //   data: { roles: [roles[0]] },
+      // },
       {
         path: 'cart',
         component: CartComponent,
@@ -139,7 +138,6 @@ const roles: Role[] = [
     TopBarComponent,
     ProductListComponent,
     ProductAlertsComponent,
-    ProductDetailsComponent,
     CartComponent,
     ContNouComponent,
     EchipaComponent,
