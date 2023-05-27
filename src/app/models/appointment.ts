@@ -6,6 +6,7 @@ export interface Appointment {
   hour: number;
   symptom: string;
   mobilePhone: string;
+  emailAdress: string;
   dateOfBirth: number;
   weight: number;
   height: number;

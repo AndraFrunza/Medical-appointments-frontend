@@ -27,10 +27,21 @@
   <mat-form-field appearance="fill">
     <mat-label>Selectează medic</mat-label>
     <mat-select [(ngModel)]="selectedDoctor">
-      <mat-option>Niciun doctor</mat-option>
+      <mat-option>Niciun medic</mat-option>
       <mat-option *ngFor="let doctor of doctors" [value]="doctor"
         >{{ doctor.firstName }} {{ doctor.lastName }}</mat-option
       >
+    </mat-select>
+  </mat-form-field>
+</div>
+<!-- SELECTEAZA ORA -->
+<div class="div1">
+  <mat-form-field appearance="fill">
+    <mat-label>Selectează ora programării</mat-label>
+    <mat-select [(ngModel)]="selectedHour">
+      <mat-option *ngFor="let hour of hours" [value]="hour.value">
+        {{ hour.viewValue }}
+      </mat-option>
     </mat-select>
   </mat-form-field>
 </div>
@@ -41,7 +52,7 @@
     <mat-calendar [(selected)]="selected"></mat-calendar>
   </mat-card>
   <button routerLink="/selectare-data" mat-raised-button color="warn">
-    Selected date: {{ selected }}
+    Dată selectată: {{ selected }}
   </button>
 
   <!-- LEGENDA CALENDAR -->
@@ -59,38 +70,24 @@
     </mat-card-content>
     <mat-card-actions> </mat-card-actions>
     <mat-card-footer>
-      <!-- <mat-progress-bar [color]="color" mode="indeterminate"></mat-progress-bar> -->
+      <mat-progress-bar [color]="color" mode="indeterminate"></mat-progress-bar>
     </mat-card-footer>
   </mat-card>
 </div>
-<!-- Selecteaza ora programarii -->
-<mat-form-field appearance="fill">
-  <mat-label>Selectează ora programării</mat-label>
-  <mat-select [(ngModel)]="selectedHour">
-    <mat-option *ngFor="let hour of hours" [value]="hour.value">
-      {{ hour.viewValue }}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
-<br />
-<!-- <div>
-  <img
-    class="selecteaza-ora"
-    src="assets/Pictures/selecteaza-ora.jpg"
-    alt="Login Doctor Picture"
-  />
-</div> -->
 
+<br />
+<!-- FORM -->
 <div class="container pt-5">
   <mat-card class="form">
-    <h2 class="h2">Alege ora și completează câmpurile</h2>
+    <h2 class="h2">Completează câmpurile</h2>
     <form [formGroup]="registerForm" (submit)="submitForm()">
-      <!-- choosing the role -->
-
       <br />
       <!-- Programare pt mine, alta persoana -->
       <section class="example-section">
-        <mat-checkbox class="example-margin" [color]="task.color"
+        <mat-checkbox
+          class="example-margin"
+          [color]="task.color"
+          (change)="onCheckboxChange($event)"
           >Programare pentru altă persoană</mat-checkbox
         >
       </section>
@@ -139,7 +136,7 @@
             !registerForm.get('email')?.hasError('required')
           "
         >
-          Vă rugăm introduceți o adresă de email validă
+          Introduceți o adresă de email validă
         </mat-error>
         <mat-error *ngIf="registerForm.get('email')?.hasError('required')">
           Introduceți <strong>adresa de email</strong>

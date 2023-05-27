@@ -5,13 +5,13 @@
 .div1 {
   display: inline-block;
   margin-top: 40px;
-  margin-left: 30px;
+  margin-left: 20px;
 }
 
 .div_calendar {
-  float: right;
+  /* float: left; */
   margin-top: 40px;
-  margin-left: 100px;
+  margin-left: 20px;
 }
 
 button {
@@ -20,8 +20,8 @@ button {
 
 .background-picture {
   position: absolute;
-  width: 1600px;
-  height: 687px;
+  width: 1590px;
+  height: 870px;
   margin-left: -200px;
 }
 
@@ -33,21 +33,18 @@ button {
 .form {
   text-align: center;
   width: 500px;
+  height: 770px;
   margin-left: 350px;
-  background-color: #abd2f1;
+  /* background-color: #abd2f1; */
+  background-color: #abd2f1b0;
+  margin-top: -830px;
+  margin-left: 730px;
 }
 
 .color {
   color: rgba(0, 0, 0, 0.55);
 }
 
-.selecteaza-ora {
-  position: absolute;
-  width: 1590px;
-  height: 1100px;
-  margin-left: -200px;
-}
-
 mat-form-field {
-  height: 85px;
+  height: 80px;
 }

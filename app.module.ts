@@ -39,6 +39,8 @@ import { Role } from 'src/app/models/role';
 import { JwtInterceptor } from 'src/app/helpers/jwt.interceptor';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { AdminTabelAdminiComponent } from 'src/app/admin-tabel-admini/admin-tabel-admini.component';
 
 const roles: Role[] = [
   {
@@ -92,6 +94,12 @@ const roles: Role[] = [
         canActivate: [AuthGuard],
         data: { roles: [roles[0]] },
       },
+      {
+        path: 'admin-tabel-admini',
+        component: AdminTabelAdminiComponent,
+        canActivate: [AuthGuard],
+        data: { roles: [roles[0]] },
+      },
     ]),
     MatButtonModule,
     MatToolbarModule,
@@ -110,6 +118,7 @@ const roles: Role[] = [
     MatSelectModule,
     MatDialogModule,
     MatCheckboxModule,
+    MatProgressBarModule,
   ],
   declarations: [
     AppComponent,

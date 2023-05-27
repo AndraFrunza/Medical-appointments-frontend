@@ -119,6 +119,14 @@ export class CalendarComponent implements OnInit {
     this.registerForm.controls['phone'].setValue(''); //form + interface
   }
 
+  onCheckboxChange(event: any) {
+    if (event.checked) {
+      this.clearPatientData();
+    } else {
+      this.setPatientData();
+    }
+  }
+
   // Validare număr de telefon
   setPhoneValidation() {
     const phoneControl = this.registerForm.get('phone');
@@ -138,6 +146,7 @@ export class CalendarComponent implements OnInit {
         hour: parseInt(this.selectedHour.toString()),
         symptom: this.registerForm.get('symptoms')?.value,
         mobilePhone: this.registerForm.get('phone')?.value,
+        emailAdress: this.registerForm.get('email')?.value,
         dateOfBirth: this.registerForm.get('dateOfBirth')?.value.getTime(),
         weight: parseFloat(this.registerForm.get('weight')?.value.toString()),
         height: parseInt(this.registerForm.get('height')?.value.toString()),
