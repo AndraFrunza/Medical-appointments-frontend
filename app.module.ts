@@ -42,6 +42,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { AdminTabelAdminiComponent } from 'src/app/admin-tabel-admini/admin-tabel-admini.component';
 import { AdminTabelMediciComponent } from './src/app/admin-tabel-medici/admin-tabel-medici.component';
+import { AdminTabelPacientiComponent } from './src/app/admin-tabel-pacienti/admin-tabel-pacienti.component';
 
 const roles: Role[] = [
   {
@@ -107,6 +108,12 @@ const roles: Role[] = [
         canActivate: [AuthGuard],
         data: { roles: [roles[0]] },
       },
+      {
+        path: 'admin-tabel-pacienti',
+        component: AdminTabelPacientiComponent,
+        canActivate: [AuthGuard],
+        data: { roles: [roles[0]] },
+      },
     ]),
     MatButtonModule,
     MatToolbarModule,
@@ -140,6 +147,7 @@ const roles: Role[] = [
     CalendarComponent,
     AdminTabelAdminiComponent,
     AdminTabelMediciComponent,
+    AdminTabelPacientiComponent,
   ],
   bootstrap: [AppComponent],
   providers: [
