@@ -11,15 +11,21 @@ import { Appointment } from '../models/appointment';
 export class MedicTabelProgramariComponent implements OnInit {
   constructor(private appointmentService: AppointmentService) {}
   ngOnInit() {
-    this.getAppointments();
-  }
-  getAppointments() {
     this.appointmentService
       .getAll()
       .subscribe((appointments: Appointment[]) => {
         this.dataSource.data = appointments;
       });
   }
+
+  // ngOnInit() {
+  //   const doctorId = 2;
+  //   this.appointmentService
+  //     .getByDoctorId(doctorId)
+  //     .subscribe((appointments: Appointment[]) => {
+  //       this.dataSource.data = appointments;
+  //     });
+  // }
 
   displayedColumns: string[] = [
     'hour',

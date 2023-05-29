@@ -24,4 +24,10 @@ export class AppointmentService {
       appointment
     );
   }
+
+  getByDoctorId(doctorId: number) {
+    return this.http.get<Appointment[]>(
+      `http://localhost:4000/appointments/cabinet/${doctorId}`
+    );
+  }
 }
