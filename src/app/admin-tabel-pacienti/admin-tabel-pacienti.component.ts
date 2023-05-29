@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { PatientService } from '../servicies/patient.service';
+import { AuthenticationService } from '../servicies/authentication.service';
+import { Admin } from '../models/admin';
 
 export interface Table {
   id: number;
@@ -39,6 +42,11 @@ const ELEMENT_DATA: Table[] = [
   styleUrls: ['./admin-tabel-pacienti.component.css'],
 })
 export class AdminTabelPacientiComponent {
+  adminService: any;
+  constructor(
+    private patientService: PatientService,
+    private authenticationService: AuthenticationService
+  ) {}
   displayedColumns: string[] = [
     'id',
     'lastName',
@@ -52,4 +60,10 @@ export class AdminTabelPacientiComponent {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+  // ngOnInit() {
+  //   this.patientService.getAll().subscribe((admins: Admin[]) => {
+  //     this.patients = patients;
+  //     console.log('all-patients', this.patients);
+  //   });
 }

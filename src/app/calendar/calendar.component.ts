@@ -147,7 +147,10 @@ export class CalendarComponent implements OnInit {
         symptom: this.registerForm.get('symptoms')?.value,
         mobilePhone: this.registerForm.get('phone')?.value,
         emailAdress: this.registerForm.get('email')?.value,
-        dateOfBirth: this.registerForm.get('dateOfBirth')?.value.getTime(),
+        // dateOfBirth: this.registerForm.get('dateOfBirth')?.value.getTime(),
+        dateOfBirth: parseInt(
+          this.registerForm.get('dateOfBirth')?.value.toString()
+        ),
         weight: parseFloat(this.registerForm.get('weight')?.value.toString()),
         height: parseInt(this.registerForm.get('height')?.value.toString()),
         doctor: this.selectedDoctor!,

@@ -8,6 +8,6 @@ export interface Doctor {
   firstName: string;
   lastName: string;
   email: string;
-  role: Role;
+  roleId: Role;
   cabinet: Cabinet;
 }

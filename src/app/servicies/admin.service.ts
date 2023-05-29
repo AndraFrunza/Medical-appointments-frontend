@@ -9,4 +9,8 @@ export class AdminService {
   getAll() {
     return this.http.get<Admin[]>('http://localhost:4000/admins/get-all');
   }
+
+  delete() {
+    return this.http.delete<Admin[]>('http://localhost:4000/admins?id=${id}');
+  }
 }

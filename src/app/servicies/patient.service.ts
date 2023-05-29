@@ -11,4 +11,8 @@ export class PatientService {
       `http://localhost:4000/patients/userId/${id}`
     );
   }
+
+  getAll() {
+    return this.http.get<Patient[]>('http://localhost:4000/patients/get-all');
+  }
 }
