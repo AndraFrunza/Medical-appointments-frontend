@@ -1,52 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-
-export interface Table {
-  hour: number;
-  symptom: string;
-  mobilePhone: string;
-  emailAdress: string;
-  dateOfBirth: number;
-  weight: number;
-  height: number;
-}
-
-const ELEMENT_DATA: Table[] = [
-  {
-    hour: 8,
-    symptom: 'Aurel',
-    mobilePhone: 'Popa',
-    emailAdress: 'aurelpopa@yahoo.com',
-    dateOfBirth: 12,
-    weight: 55,
-    height: 170,
-  },
-  {
-    hour: 9,
-    symptom: 'Andrei',
-    mobilePhone: 'Neacsu',
-    emailAdress: 'andrei.n@gmail.com',
-    dateOfBirth: 12,
-    weight: 65,
-    height: 165,
-  },
-  {
-    hour: 10,
-    symptom: 'Mihai',
-    mobilePhone: 'Constantin',
-    emailAdress: 'mc@yahoo.com',
-    dateOfBirth: 12,
-    weight: 48,
-    height: 158,
-  },
-];
+import { AppointmentService } from '../servicies/appointment.service';
+import { Appointment } from '../models/appointment';
 
 @Component({
   selector: 'app-medic-tabel-programari',
   templateUrl: './medic-tabel-programari.component.html',
   styleUrls: ['./medic-tabel-programari.component.css'],
 })
-export class MedicTabelProgramariComponent {
+export class MedicTabelProgramariComponent implements OnInit {
+  constructor(private appointmentService: AppointmentService) {}
+  ngOnInit() {
+    this.getAppointments();
+  }
+  getAppointments() {
+    this.appointmentService
+      .getAll()
+      .subscribe((appointments: Appointment[]) => {
+        this.dataSource.data = appointments;
+      });
+  }
+
   displayedColumns: string[] = [
     'hour',
     'symptom',
@@ -56,7 +30,8 @@ export class MedicTabelProgramariComponent {
     'weight',
     'height',
   ];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+
+  dataSource = new MatTableDataSource<Appointment>();
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
