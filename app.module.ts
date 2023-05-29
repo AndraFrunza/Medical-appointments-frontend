@@ -43,6 +43,7 @@ import { AdminTabelAdminiComponent } from 'src/app/admin-tabel-admini/admin-tabe
 import { AdminTabelMediciComponent } from './src/app/admin-tabel-medici/admin-tabel-medici.component';
 import { AdminTabelPacientiComponent } from './src/app/admin-tabel-pacienti/admin-tabel-pacienti.component';
 import { MatTableModule } from '@angular/material/table';
+import { MedicTabelPacientiComponent } from './src/app/medic-tabel-pacienti/medic-tabel-pacienti.component';
 
 const roles: Role[] = [
   {
@@ -114,6 +115,12 @@ const roles: Role[] = [
         canActivate: [AuthGuard],
         data: { roles: [roles[0], roles[1], roles[2]] },
       },
+      {
+        path: 'medic-tabel-pacienti',
+        component: MedicTabelPacientiComponent,
+        canActivate: [AuthGuard],
+        data: { roles: [roles[0], roles[1], roles[2]] },
+      },
     ]),
     MatButtonModule,
     MatToolbarModule,
@@ -148,6 +155,7 @@ const roles: Role[] = [
     AdminTabelAdminiComponent,
     AdminTabelMediciComponent,
     AdminTabelPacientiComponent,
+    MedicTabelPacientiComponent,
   ],
   bootstrap: [AppComponent],
   providers: [
