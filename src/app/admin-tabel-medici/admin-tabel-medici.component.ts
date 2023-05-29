@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 
 export interface Table {
-  position: number;
+  id: number;
   firstName: string;
   lastName: string;
   specialization: string;
@@ -13,7 +13,7 @@ export interface Table {
 
 const ELEMENT_DATA: Table[] = [
   {
-    position: 1,
+    id: 1,
     firstName: 'Aurel',
     lastName: 'Popa',
     specialization: 'medic neurolog',
@@ -22,7 +22,7 @@ const ELEMENT_DATA: Table[] = [
     mobilePhone: '+4071222121',
   },
   {
-    position: 2,
+    id: 2,
     firstName: 'Andrei',
     lastName: 'Neacsu',
     specialization: 'medic chirurg',
@@ -31,7 +31,7 @@ const ELEMENT_DATA: Table[] = [
     mobilePhone: '+4071222121',
   },
   {
-    position: 3,
+    id: 3,
     firstName: 'Mihai',
     lastName: 'Constantin',
     specialization: 'medic oftalmolog',
@@ -48,7 +48,7 @@ const ELEMENT_DATA: Table[] = [
 })
 export class AdminTabelMediciComponent {
   displayedColumns: string[] = [
-    'position',
+    'id',
     'lastName',
     'firstName',
     'specialization',
