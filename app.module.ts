@@ -42,6 +42,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { AdminTabelAdminiComponent } from 'src/app/admin-tabel-admini/admin-tabel-admini.component';
 import { AdminTabelMediciComponent } from './src/app/admin-tabel-medici/admin-tabel-medici.component';
 import { AdminTabelPacientiComponent } from './src/app/admin-tabel-pacienti/admin-tabel-pacienti.component';
+import { MatTableModule } from '@angular/material/table';
 
 const roles: Role[] = [
   {
@@ -99,19 +100,19 @@ const roles: Role[] = [
         path: 'admin-tabel-admini',
         component: AdminTabelAdminiComponent,
         canActivate: [AuthGuard],
-        data: { roles: [roles[0]] },
+        data: { roles: [roles[0], roles[1], roles[2]] },
       },
       {
         path: 'admin-tabel-medici',
         component: AdminTabelMediciComponent,
         canActivate: [AuthGuard],
-        data: { roles: [roles[0]] },
+        data: { roles: [roles[0], roles[1], roles[2]] },
       },
       {
         path: 'admin-tabel-pacienti',
         component: AdminTabelPacientiComponent,
         canActivate: [AuthGuard],
-        data: { roles: [roles[0]] },
+        data: { roles: [roles[0], roles[1], roles[2]] },
       },
     ]),
     MatButtonModule,
@@ -132,6 +133,7 @@ const roles: Role[] = [
     MatDialogModule,
     MatCheckboxModule,
     MatProgressBarModule,
+    MatTableModule,
   ],
   declarations: [
     AppComponent,
