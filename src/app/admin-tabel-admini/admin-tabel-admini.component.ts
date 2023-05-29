@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 
 export interface Table {
-  position: number;
+  id: number;
   firstName: string;
   lastName: string;
   email: string;
@@ -10,19 +10,19 @@ export interface Table {
 
 const ELEMENT_DATA: Table[] = [
   {
-    position: 1,
+    id: 1,
     firstName: 'Aurel',
     lastName: 'Popa',
     email: 'aurelpopa@yahoo.com',
   },
   {
-    position: 2,
+    id: 2,
     firstName: 'Andrei',
     lastName: 'Neacsu',
     email: 'andrei.n@gmail.com',
   },
   {
-    position: 3,
+    id: 3,
     firstName: 'Mihai',
     lastName: 'Constantin',
     email: 'mc@yahoo.com',
@@ -35,7 +35,7 @@ const ELEMENT_DATA: Table[] = [
   styleUrls: ['./admin-tabel-admini.component.css'],
 })
 export class AdminTabelAdminiComponent {
-  displayedColumns: string[] = ['position', 'lastName', 'firstName', 'email'];
+  displayedColumns: string[] = ['id', 'lastName', 'firstName', 'email'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   applyFilter(event: Event) {
