@@ -21,4 +21,8 @@ export class DoctorService {
       `http://localhost:4000/doctors/userId/${doctorId}`
     );
   }
+
+  postCreate(doctor: Doctor) {
+    return this.http.post<Doctor>('http://localhost:4000/doctors', doctor);
+  }
 }

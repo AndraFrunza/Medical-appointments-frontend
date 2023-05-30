@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { PatientService } from '../servicies/patient.service';
+import { DoctorService } from '../servicies/doctor.service';
+import { Patient } from '../models/patient';
+import { Doctor } from '../models/doctor';
+import { Cabinet } from '../models/cabinet';
 
 @Component({
   selector: 'app-cont-nou',
@@ -8,8 +13,13 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 })
 export class ContNouComponent implements OnInit {
   submitStatus: boolean = false;
+  cabinet: Cabinet | undefined;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private patientService: PatientService,
+    private doctorService: DoctorService
+  ) {}
 
   registerForm: FormGroup = this.formBuilder.group({
     firstName: [, { validators: [Validators.required], updateOn: 'change' }],
@@ -58,8 +68,43 @@ export class ContNouComponent implements OnInit {
   // }
 
   submitForm() {
-    console.log(this.registerForm.valid);
-    this.submitStatus = true;
+    // console.log(this.registerForm.valid);
+    // this.submitStatus = true;
+    if (this.registerForm.valid) {
+      const formData = this.registerForm.value;
+
+      if (formData.role === 'patient') {
+        const patient: Patient = {
+          id: 0,
+          firstName: this.registerForm.get('firstName')?.value,
+          lastName: this.registerForm.get('lastName')?.value,
+          mobilePhone: this.registerForm.get('phone')?.value,
+          email: this.registerForm.get('email')?.value,
+          roleId: 1,
+        };
+
+        this.patientService.postCreate(patient).subscribe((response) => {
+          console.log('Contul de pacient a fost creat cu succes:', response);
+          this.submitStatus = true;
+        });
+      } else if (formData.role === 'doctor') {
+        const doctor: Doctor = {
+          id: 0,
+          specialization: this.registerForm.get('specialization')?.value,
+          firstName: this.registerForm.get('firstName')?.value,
+          lastName: this.registerForm.get('lastName')?.value,
+          mobilePhone: this.registerForm.get('phone')?.value,
+          email: this.registerForm.get('email')?.value,
+          cabinet: this.cabinet!,
+          roleId: 2,
+        };
+
+        this.doctorService.postCreate(doctor).subscribe((response) => {
+          console.log('Contul de doctor a fost creat cu succes:', response);
+          this.submitStatus = true;
+        });
+      }
+    }
   }
 
   get isPatientSelected() {

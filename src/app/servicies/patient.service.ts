@@ -15,4 +15,8 @@ export class PatientService {
   getAll() {
     return this.http.get<Patient[]>('http://localhost:4000/patients/get-all');
   }
+
+  postCreate(patient: Patient) {
+    return this.http.post<Patient>('http://localhost:4000/patients', patient);
+  }
 }
