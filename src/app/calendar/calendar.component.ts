@@ -12,6 +12,7 @@ import { AuthenticationService } from '../servicies/authentication.service';
 import { User } from '../models/user';
 import { AppointmentService } from '../servicies/appointment.service';
 import { Appointment } from '../models/appointment';
+import { catchError, throwError } from 'rxjs';
 
 export interface Task {
   color: ThemePalette;
@@ -54,6 +55,7 @@ export class CalendarComponent implements OnInit {
   selectedCabinet?: Cabinet | null;
   selectedDoctor?: Doctor | null;
   selectedHour: number = 7;
+  errorMsg: string = '';
 
   constructor(
     private cabinetService: CabinetService,
@@ -143,12 +145,12 @@ export class CalendarComponent implements OnInit {
     if (this.registerForm.valid) {
       const appointment: Appointment = {
         id: 0,
+        date: this.selected!,
         hour: parseInt(this.selectedHour.toString()),
         symptom: this.registerForm.get('symptoms')?.value,
         mobilePhone: this.registerForm.get('phone')?.value,
         emailAdress: this.registerForm.get('email')?.value,
-        // dateOfBirth: this.registerForm.get('dateOfBirth')?.value.getTime(),
-        dateOfBirth: parseInt(
+        dateOfBirth: new Date(
           this.registerForm.get('dateOfBirth')?.value.toString()
         ),
         weight: parseFloat(this.registerForm.get('weight')?.value.toString()),
@@ -157,8 +159,15 @@ export class CalendarComponent implements OnInit {
         patient: this.patient!,
       };
       console.log(appointment);
+      this.errorMsg = '';
       this.appointmentService
         .create(appointment)
+        .pipe(
+          catchError((error) => {
+            this.errorMsg = ` ${error.error.message}`;
+            return throwError(() => error);
+          })
+        )
         .subscribe((createdAppointment) => console.log(createdAppointment));
     }
   }

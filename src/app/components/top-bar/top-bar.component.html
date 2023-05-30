@@ -24,7 +24,11 @@
   <button *ngIf="isAdmin" routerLink="/admin-tabel-admini" mat-button>
     Admin Tabel Admini
   </button>
-  <button *ngIf="isMedic" routerLink="/medic-tabel-programari" mat-button>
+  <button
+    *ngIf="isMedic || isPatient || isAdmin"
+    routerLink="/medic-tabel-programari"
+    mat-button
+  >
     Medic Tabel Programari
   </button>
 

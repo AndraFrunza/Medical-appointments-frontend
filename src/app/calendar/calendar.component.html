@@ -23,7 +23,7 @@
 </div>
 
 <!-- SELECTEAZA MEDIC -->
-<div class="div1">
+<div *ngIf="selectedCabinet" class="div1">
   <mat-form-field appearance="fill">
     <mat-label>Selectează medic</mat-label>
     <mat-select [(ngModel)]="selectedDoctor">
@@ -35,7 +35,7 @@
   </mat-form-field>
 </div>
 <!-- SELECTEAZA ORA -->
-<div class="div1">
+<div *ngIf="selected" class="div1">
   <mat-form-field appearance="fill">
     <mat-label>Selectează ora programării</mat-label>
     <mat-select [(ngModel)]="selectedHour">
@@ -62,11 +62,12 @@
       <mat-card-title>Legendă</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <ul>
+      <!-- <ul>
         <li style="color: rgb(0, 188, 0)">Zile disponibile</li>
         <li style="color: red">Zile indisponibile</li>
         <li style="color: rgb(58, 58, 231)">Zile libere</li>
-      </ul>
+      </ul> -->
+      <p>{{ errorMsg }}</p>
     </mat-card-content>
     <mat-card-actions> </mat-card-actions>
     <mat-card-footer>
@@ -144,7 +145,7 @@
       </mat-form-field>
       <br />
       <!-- Alege data nasterii -->
-      <!-- <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill">
         <mat-label>Alege data nașterii</mat-label>
         <input
           matInput
@@ -157,8 +158,8 @@
         ></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-      <br /> -->
-      <mat-form-field class="col-5 mt-3 mx-auto">
+      <br />
+      <!-- <mat-form-field class="col-5 mt-3 mx-auto">
         <mat-label>Data nașterii</mat-label>
         <input
           type="text"
@@ -172,7 +173,7 @@
           Introduceți <strong>data nașterii</strong>
         </mat-error>
       </mat-form-field>
-      <br />
+      <br /> -->
       <!-- Greutate -->
       <mat-form-field class="example-full-width">
         <mat-label>Greutate (kg)</mat-label>
@@ -196,7 +197,7 @@
         Submit
       </button>
       <br />
-      <ng-template [ngIf]="submitStatus">
+      <ng-template [ngIf]="submitStatus && errorMsg === ''">
         <span>Programarea a fost creată cu succes!</span>
       </ng-template>
     </form>

@@ -15,4 +15,10 @@ export class DoctorService {
       `http://localhost:4000/doctors/cabinet/${id}`
     );
   }
+
+  getDoctorByUserId(doctorId: number) {
+    return this.http.get<Doctor>(
+      `http://localhost:4000/doctors/userId/${doctorId}`
+    );
+  }
 }

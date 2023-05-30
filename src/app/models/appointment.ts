@@ -3,11 +3,12 @@ import { Patient } from './patient';
 
 export interface Appointment {
   id: number;
+  date: Date;
   hour: number;
   symptom: string;
   mobilePhone: string;
   emailAdress: string;
-  dateOfBirth: number;
+  dateOfBirth: Date;
   weight: number;
   height: number;
   doctor: Doctor;

@@ -117,7 +117,7 @@ const roles: Role[] = [
         data: { roles: [roles[0], roles[1], roles[2]] },
       },
       {
-        path: 'medic-tabel-programari',
+        path: 'medic-tabel-programari', //redenumesc
         component: MedicTabelProgramariComponent,
         canActivate: [AuthGuard],
         data: { roles: [roles[0], roles[1], roles[2]] },
