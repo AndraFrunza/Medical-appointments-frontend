@@ -3,11 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppComponent } from './app.component';
-
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -17,11 +14,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatGridListModule } from '@angular/material/grid-list';
-
 import { FormsModule } from '@angular/forms';
-
 import { GoogleMapsModule } from '@angular/google-maps';
-
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
@@ -32,7 +26,6 @@ import { CartComponent } from 'src/app/logare/cart.component';
 import { ContNouComponent } from 'src/app/cont-nou/cont-nou.component';
 import { ContactComponent } from 'src/app/contact/contact.component';
 import { TopBarComponent } from 'src/app/components/top-bar/top-bar.component';
-import { ProductAlertsComponent } from 'src/app/product-alerts/product-alerts.component';
 import { AuthGuard } from 'src/app/helpers/auth.guard';
 import { Role } from 'src/app/models/role';
 import { JwtInterceptor } from 'src/app/helpers/jwt.interceptor';
@@ -43,7 +36,6 @@ import { AdminTabelAdminiComponent } from 'src/app/admin-tabel-admini/admin-tabe
 import { AdminTabelMediciComponent } from './src/app/admin-tabel-medici/admin-tabel-medici.component';
 import { AdminTabelPacientiComponent } from './src/app/admin-tabel-pacienti/admin-tabel-pacienti.component';
 import { MatTableModule } from '@angular/material/table';
-import { MedicTabelPacientiComponent } from './src/app/medic-tabel-pacienti/medic-tabel-pacienti.component';
 import { MedicTabelProgramariComponent } from './src/app/medic-tabel-programari/medic-tabel-programari.component';
 import { FormCreareAdminComponent } from './src/app/form-creare-admin/form-creare-admin.component';
 
@@ -70,12 +62,6 @@ const roles: Role[] = [
     MatNativeDateModule,
     RouterModule.forRoot([
       { path: '', component: ProductListComponent }, //prima pagina
-      // {
-      //   path: 'products/:productId',
-      //   component: ProductDetailsComponent,
-      //   canActivate: [AuthGuard],
-      //   data: { roles: [roles[0]] },
-      // },
       {
         path: 'cart',
         component: CartComponent,
@@ -155,7 +141,6 @@ const roles: Role[] = [
     AppComponent,
     TopBarComponent,
     ProductListComponent,
-    ProductAlertsComponent,
     CartComponent,
     ContNouComponent,
     EchipaComponent,
@@ -164,7 +149,6 @@ const roles: Role[] = [
     AdminTabelAdminiComponent,
     AdminTabelMediciComponent,
     AdminTabelPacientiComponent,
-    MedicTabelPacientiComponent,
     MedicTabelProgramariComponent,
     FormCreareAdminComponent,
   ],
