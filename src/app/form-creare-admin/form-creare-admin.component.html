@@ -1,0 +1,80 @@
+<div>
+  <img
+    class="login-doctor-picture"
+    src="assets/Pictures/blur-hospital-2.jpg"
+    alt="Login Doctor Picture"
+  />
+</div>
+
+<div class="container pt-5">
+  <mat-card class="form">
+    <h2 class="h2">Adauga admin</h2>
+    <form [formGroup]="adminForm" (submit)="submitForm()">
+      <!-- FirstName -->
+      <mat-form-field class="col-5 mt-3 mx-auto">
+        <mat-label>Prenume</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="firstName"
+          placeholder="Ex. Andra"
+        />
+        <mat-error *ngIf="adminForm.get('firstName')?.hasError('required')">
+          Introduceți <strong>prenumele</strong>
+        </mat-error>
+      </mat-form-field>
+      <br />
+      <!-- LastName -->
+      <mat-form-field class="col-5 mt-3 mx-auto">
+        <mat-label>Nume</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="lastName"
+          placeholder="Ex. Andra"
+        />
+        <mat-error *ngIf="adminForm.get('lastName')?.hasError('required')">
+          Introduceți <strong>prenumele</strong>
+        </mat-error>
+      </mat-form-field>
+      <br />
+      <!-- Email -->
+      <mat-form-field class="col-5 mb-2 mx-auto">
+        <mat-label>Email</mat-label>
+        <input
+          type="email"
+          matInput
+          formControlName="email"
+          placeholder="Ex. email@gmail.com"
+        />
+        <mat-error
+          *ngIf="
+            adminForm.get('email')?.hasError('email') &&
+            !adminForm.get('email')?.hasError('required')
+          "
+        >
+          Introduceți o adresă de email validă
+        </mat-error>
+        <mat-error *ngIf="adminForm.get('email')?.hasError('required')">
+          Introduceți <strong>adresa de email</strong>
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <!-- Submit button -->
+      <button
+        [disabled]="!adminForm.valid"
+        mat-flat-button
+        color="primary"
+        type="submit"
+        class="col-3 mt-2 mb-3"
+      >
+        Submit
+      </button>
+      <br />
+      <ng-template [ngIf]="submitStatus">
+        <span>Contul de admin a fost creat cu succes!</span>
+      </ng-template>
+    </form>
+  </mat-card>
+</div>

@@ -35,40 +35,40 @@ export class MedicTabelProgramariComponent implements OnInit {
     this.authenticationService.authenticationResponse.subscribe(
       (x) => (user = x?.user)
     );
-    // if (user) {
-    //   switch (user.role.id) {
-    //     case 1: {
-    //       this.patientService
-    //         .getPatientByUserId(user.id)
-    //         .subscribe((patient) => {
-    //           this.appointmentService
-    //             .getAppointmentsByPatientId(patient.id)
-    //             .subscribe((appointments) => {
-    //               this.dataSource.data = appointments;
-    //             });
-    //         });
-    //       break;
-    //     }
+    if (user) {
+      switch (user.role.id) {
+        case 1: {
+          this.patientService
+            .getPatientByUserId(user.id)
+            .subscribe((patient) => {
+              this.appointmentService
+                .getAppointmentsByPatientId(patient.id)
+                .subscribe((appointments) => {
+                  this.dataSource.data = appointments;
+                });
+            });
+          break;
+        }
 
-    //     case 2: {
-    //       this.doctorService.getDoctorByUserId(user.id).subscribe((doctor) => {
-    //         this.appointmentService
-    //           .getAppointmentsByDoctorId(doctor.id)
-    //           .subscribe((appointments) => {
-    //             this.dataSource.data = appointments;
-    //           });
-    //       });
-    //       break;
-    //     }
+        case 2: {
+          this.doctorService.getDoctorByUserId(user.id).subscribe((doctor) => {
+            this.appointmentService
+              .getAppointmentsByDoctorId(doctor.id)
+              .subscribe((appointments) => {
+                this.dataSource.data = appointments;
+              });
+          });
+          break;
+        }
 
-    //     case 3: {
-    //       this.appointmentService.getAll().subscribe((appointments) => {
-    //         this.dataSource.data = appointments;
-    //       });
-    //       break;
-    //     }
-    //   }
-    // }
+        case 3: {
+          this.appointmentService.getAll().subscribe((appointments) => {
+            this.dataSource.data = appointments;
+          });
+          break;
+        }
+      }
+    }
   }
 
   displayedColumns: string[] = [

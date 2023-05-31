@@ -10,16 +10,6 @@
   <mat-card class="form">
     <h2 class="h2">Bine ai revenit!</h2>
     <form [formGroup]="loginForm" (submit)="submitForm()">
-      <!-- choosing the role -->
-      <mat-radio-group name="account_type" formControlName="role">
-        <label class="color">Selectează rolul: </label>
-        <mat-radio-button class="mx-2" value="user"> Pacient </mat-radio-button>
-        <mat-radio-button class="mx-2" value="medic"> Medic </mat-radio-button>
-        <mat-radio-button class="mx-2" value="admin">
-          Administrator
-        </mat-radio-button>
-      </mat-radio-group>
-      <br />
       <!-- Email -->
       <mat-form-field class="col-5 mb-2 mx-auto">
         <mat-label>Email</mat-label>

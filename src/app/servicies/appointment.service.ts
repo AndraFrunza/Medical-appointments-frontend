@@ -24,4 +24,16 @@ export class AppointmentService {
       appointment
     );
   }
+
+  getAppointmentsByPatientId(patientId: number) {
+    return this.http.get<Appointment[]>(
+      `http://localhost:4000/appointments/patientId/${patientId}`
+    );
+  }
+
+  getAppointmentsByDoctorId(medicId: number) {
+    return this.http.get<Appointment[]>(
+      `http://localhost:4000/appointments/medicId/${medicId}`
+    );
+  }
 }

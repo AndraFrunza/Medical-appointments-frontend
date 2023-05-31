@@ -1,0 +1,38 @@
+.login-doctor-picture {
+  position: absolute;
+  width: 1600px;
+  height: 687px;
+  margin-left: -200px;
+}
+
+.form {
+  text-align: center;
+  width: 500px;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  margin-left: 350px;
+  margin-top: 20px;
+  background-color: #abd2f1;
+}
+
+.color {
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.form {
+  text-align: center;
+  width: 500px;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  margin-left: 350px;
+  margin-top: 20px;
+  background-color: #abd2f1;
+}
+
+.color {
+  color: rgba(0, 0, 0, 0.55);
+}
+
+mat-form-field {
+  height: 85px;
+}

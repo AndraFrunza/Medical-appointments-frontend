@@ -45,6 +45,7 @@ import { AdminTabelPacientiComponent } from './src/app/admin-tabel-pacienti/admi
 import { MatTableModule } from '@angular/material/table';
 import { MedicTabelPacientiComponent } from './src/app/medic-tabel-pacienti/medic-tabel-pacienti.component';
 import { MedicTabelProgramariComponent } from './src/app/medic-tabel-programari/medic-tabel-programari.component';
+import { FormCreareAdminComponent } from './src/app/form-creare-admin/form-creare-admin.component';
 
 const roles: Role[] = [
   {
@@ -122,6 +123,12 @@ const roles: Role[] = [
         canActivate: [AuthGuard],
         data: { roles: [roles[0], roles[1], roles[2]] },
       },
+      {
+        path: 'form-creare-admin', //redenumesc
+        component: FormCreareAdminComponent,
+        canActivate: [AuthGuard],
+        data: { roles: [roles[0], roles[1], roles[2]] },
+      },
     ]),
     MatButtonModule,
     MatToolbarModule,
@@ -142,6 +149,7 @@ const roles: Role[] = [
     MatCheckboxModule,
     MatProgressBarModule,
     MatTableModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     AppComponent,
@@ -158,6 +166,7 @@ const roles: Role[] = [
     AdminTabelPacientiComponent,
     MedicTabelPacientiComponent,
     MedicTabelProgramariComponent,
+    FormCreareAdminComponent,
   ],
   bootstrap: [AppComponent],
   providers: [

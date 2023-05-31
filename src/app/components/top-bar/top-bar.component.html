@@ -24,6 +24,9 @@
   <button *ngIf="isAdmin" routerLink="/admin-tabel-admini" mat-button>
     Admin Tabel Admini
   </button>
+  <button *ngIf="isAdmin" routerLink="/form-creare-admin" mat-button>
+    Adaugare admin
+  </button>
   <button
     *ngIf="isMedic || isPatient || isAdmin"
     routerLink="/medic-tabel-programari"

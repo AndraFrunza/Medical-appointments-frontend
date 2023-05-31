@@ -13,4 +13,8 @@ export class AdminService {
   delete() {
     return this.http.delete<Admin[]>('http://localhost:4000/admins?id=${id}');
   }
+
+  create(admin: Admin) {
+    return this.http.post<Admin>('http://localhost:4000/admins', admin);
+  }
 }

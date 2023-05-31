@@ -99,6 +99,7 @@ export class ContNouComponent implements OnInit {
           roleId: 2,
         };
 
+        console.log(doctor);
         this.doctorService.postCreate(doctor).subscribe((response) => {
           console.log('Contul de doctor a fost creat cu succes:', response);
           this.submitStatus = true;
