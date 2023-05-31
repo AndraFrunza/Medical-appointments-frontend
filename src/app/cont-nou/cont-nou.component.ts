@@ -13,7 +13,7 @@ import { Cabinet } from '../models/cabinet';
 })
 export class ContNouComponent implements OnInit {
   submitStatus: boolean = false;
-  cabinet: Cabinet | undefined;
+  cabinet!: Cabinet;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -49,7 +49,6 @@ export class ContNouComponent implements OnInit {
   setPhoneValidation() {
     const phoneControl = this.registerForm.get('phone');
 
-    // if (phoneControl != null) {
     phoneControl?.setValidators([
       Validators.pattern('^[0-9]*$'),
       Validators.required,
@@ -65,11 +64,10 @@ export class ContNouComponent implements OnInit {
       phoneControl?.updateValueAndValidity();
     });
   }
-  // }
 
   submitForm() {
-    // console.log(this.registerForm.valid);
-    // this.submitStatus = true;
+    console.log(this.registerForm.valid);
+    this.submitStatus = true;
     if (this.registerForm.valid) {
       const formData = this.registerForm.value;
 

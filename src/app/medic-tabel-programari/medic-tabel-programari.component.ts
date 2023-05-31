@@ -22,13 +22,6 @@ export class MedicTabelProgramariComponent implements OnInit {
     private adminService: AdminService,
     private doctorService: DoctorService
   ) {}
-  // ngOnInit() {
-  //   this.appointmentService
-  //     .getAll()
-  //     .subscribe((appointments: Appointment[]) => {
-  //       this.dataSource.data = appointments;
-  //     });
-  // }
 
   ngOnInit() {
     let user: User | undefined;
