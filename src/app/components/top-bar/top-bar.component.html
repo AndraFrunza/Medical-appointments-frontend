@@ -39,6 +39,7 @@
   <span class="example-spacer"></span>
   <button
     (click)="openDialog()"
+    *ngIf="isLoggedOut()"
     [disabled]="buttonDisabled"
     mat-raised-button
     color="warn"

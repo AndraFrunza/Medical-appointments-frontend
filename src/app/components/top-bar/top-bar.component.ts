@@ -50,4 +50,7 @@ export class TopBarComponent {
       console.log('userById', user);
     });
   }
+  isLoggedOut() {
+    return !this.user; // Verificați dacă utilizatorul este null sau undefined pentru a determina dacă este delogat
+  }
 }

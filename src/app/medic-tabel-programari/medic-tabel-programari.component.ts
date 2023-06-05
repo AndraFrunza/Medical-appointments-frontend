@@ -14,6 +14,7 @@ import { DoctorService } from '../servicies/doctor.service';
   styleUrls: ['./medic-tabel-programari.component.css'],
 })
 export class MedicTabelProgramariComponent implements OnInit {
+  // checked = false;
   doctorId: any;
   constructor(
     private appointmentService: AppointmentService,
@@ -22,17 +23,16 @@ export class MedicTabelProgramariComponent implements OnInit {
     private adminService: AdminService,
     private doctorService: DoctorService
   ) {}
-
+  user: User | undefined;
   ngOnInit() {
-    let user: User | undefined;
     this.authenticationService.authenticationResponse.subscribe(
-      (x) => (user = x?.user)
+      (x) => (this.user = x?.user)
     );
-    if (user) {
-      switch (user.role.id) {
+    if (this.user) {
+      switch (this.user.role.id) {
         case 1: {
           this.patientService
-            .getPatientByUserId(user.id)
+            .getPatientByUserId(this.user.id)
             .subscribe((patient) => {
               this.appointmentService
                 .getAppointmentsByPatientId(patient.id)
@@ -44,13 +44,15 @@ export class MedicTabelProgramariComponent implements OnInit {
         }
 
         case 2: {
-          this.doctorService.getDoctorByUserId(user.id).subscribe((doctor) => {
-            this.appointmentService
-              .getAppointmentsByDoctorId(doctor.id)
-              .subscribe((appointments) => {
-                this.dataSource.data = appointments;
-              });
-          });
+          this.doctorService
+            .getDoctorByUserId(this.user.id)
+            .subscribe((doctor) => {
+              this.appointmentService
+                .getAppointmentsByDoctorId(doctor.id)
+                .subscribe((appointments) => {
+                  this.dataSource.data = appointments;
+                });
+            });
           break;
         }
 
@@ -72,6 +74,7 @@ export class MedicTabelProgramariComponent implements OnInit {
     'dateOfBirth',
     'weight',
     'height',
+    'checked',
   ];
 
   dataSource = new MatTableDataSource<Appointment>();
@@ -80,4 +83,6 @@ export class MedicTabelProgramariComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+  updateAppointment(checked: boolean) {}
 }

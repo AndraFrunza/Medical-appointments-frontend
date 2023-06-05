@@ -17,7 +17,13 @@
     </p>
   </div>
 
-  <button routerLink="/cont-nou" class="button" mat-raised-button color="warn">
-    Creeaza cont!
+  <button
+    *ngIf="isLoggedOut()"
+    routerLink="/cont-nou"
+    class="button"
+    mat-raised-button
+    color="warn"
+  >
+    Creează cont!
   </button>
 </div>

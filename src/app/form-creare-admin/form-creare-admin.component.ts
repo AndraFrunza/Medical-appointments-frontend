@@ -44,22 +44,18 @@ export class FormCreareAdminComponent {
     console.log(this.adminForm.valid);
     this.submitStatus = true;
     if (this.adminForm.valid) {
-      const formData = this.adminForm.value;
+      const admin: Admin = {
+        id: 0,
+        firstName: this.adminForm.get('firstName')?.value,
+        lastName: this.adminForm.get('lastName')?.value,
+        email: this.adminForm.get('email')?.value,
+        roleId: 3,
+      };
 
-      if (formData.role === 'admin') {
-        const admin: Admin = {
-          id: 0,
-          firstName: this.adminForm.get('firstName')?.value,
-          lastName: this.adminForm.get('lastName')?.value,
-          email: this.adminForm.get('email')?.value,
-          role: 3,
-        };
-
-        this.adminService.create(admin).subscribe((response) => {
-          console.log('Contul de admin a fost creat cu succes:', response);
-          this.submitStatus = true;
-        });
-      }
+      this.adminService.create(admin).subscribe((response) => {
+        console.log('Contul de admin a fost creat cu succes:', response);
+        this.submitStatus = true;
+      });
     }
   }
 }

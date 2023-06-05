@@ -112,13 +112,13 @@ export class CalendarComponent implements OnInit {
       this.patient?.firstName + ' ' + this.patient?.lastName
     );
     this.registerForm.controls['email'].setValue(this.patient?.email);
-    this.registerForm.controls['phone'].setValue(this.patient?.mobilePhone); //form + interface
+    this.registerForm.controls['phone'].setValue(this.patient?.mobilePhone);
   }
 
   clearPatientData() {
     this.registerForm.controls['fullName'].setValue('');
     this.registerForm.controls['email'].setValue('');
-    this.registerForm.controls['phone'].setValue(''); //form + interface
+    this.registerForm.controls['phone'].setValue('');
   }
 
   onCheckboxChange(event: any) {
@@ -157,6 +157,7 @@ export class CalendarComponent implements OnInit {
         height: parseInt(this.registerForm.get('height')?.value.toString()),
         doctor: this.selectedDoctor!,
         patient: this.patient!,
+        present: false,
       };
       console.log(appointment);
       this.errorMsg = '';

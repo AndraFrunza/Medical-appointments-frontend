@@ -5,6 +5,8 @@ import { DoctorService } from '../servicies/doctor.service';
 import { Patient } from '../models/patient';
 import { Doctor } from '../models/doctor';
 import { Cabinet } from '../models/cabinet';
+import { MatSelectChange } from '@angular/material/select';
+import { CabinetService } from '../servicies/cabinet.service';
 
 @Component({
   selector: 'app-cont-nou',
@@ -14,21 +16,21 @@ import { Cabinet } from '../models/cabinet';
 export class ContNouComponent implements OnInit {
   submitStatus: boolean = false;
   cabinet!: Cabinet;
+  selectedCabinet?: Cabinet | null;
+  cabinets: Cabinet[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
     private patientService: PatientService,
-    private doctorService: DoctorService
+    private doctorService: DoctorService,
+    private cabinetService: CabinetService
   ) {}
 
   registerForm: FormGroup = this.formBuilder.group({
     firstName: [, { validators: [Validators.required], updateOn: 'change' }],
     lastName: [, { validators: [Validators.required], updateOn: 'change' }],
-    specialization: [
-      ,
-      { validators: [Validators.required], updateOn: 'change' },
-    ],
-    cabinet: [, { validators: [Validators.required], updateOn: 'change' }],
+    specialization: [, { updateOn: 'change' }],
+    cabinet: [, { updateOn: 'change' }],
     email: [
       ,
       {
@@ -43,6 +45,10 @@ export class ContNouComponent implements OnInit {
 
   ngOnInit() {
     this.setPhoneValidation();
+    this.cabinetService.getAll().subscribe((cabinets: Cabinet[]) => {
+      this.cabinets = cabinets;
+      console.log('all-cabinets', this.cabinets);
+    });
   }
 
   // Validare număr de telefon
@@ -93,7 +99,10 @@ export class ContNouComponent implements OnInit {
           lastName: this.registerForm.get('lastName')?.value,
           mobilePhone: this.registerForm.get('phone')?.value,
           email: this.registerForm.get('email')?.value,
-          cabinet: this.cabinet!,
+          cabinet: {
+            id: this.registerForm.get('cabinet')?.value,
+            name: '',
+          },
           roleId: 2,
         };
 

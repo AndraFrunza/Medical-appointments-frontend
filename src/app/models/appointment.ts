@@ -11,6 +11,7 @@ export interface Appointment {
   dateOfBirth: Date;
   weight: number;
   height: number;
+  present: boolean;
   doctor: Doctor;
   patient: Patient;
 }

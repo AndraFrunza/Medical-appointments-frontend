@@ -5,5 +5,5 @@ export interface Admin {
   firstName: string;
   lastName: string;
   email: string;
-  role: number;
+  roleId: number;
 }
