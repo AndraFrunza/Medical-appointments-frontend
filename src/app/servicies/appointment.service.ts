@@ -36,4 +36,18 @@ export class AppointmentService {
       `http://localhost:4000/appointments/medicId/${medicId}`
     );
   }
+
+  // updateAppointment(appointment: Appointment) {
+  //   return this.http.put<Appointment>(
+  //     `http://localhost:4000/appointments/${appointment.id}`,
+  //     appointment
+  //   );
+  // }
+
+  updateAppointment(appointment: Appointment) {
+    return this.http.put<Appointment>(
+      `http://localhost:4000/appointments`,
+      appointment
+    );
+  }
 }

@@ -84,5 +84,14 @@ export class MedicTabelProgramariComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  updateAppointment(checked: boolean) {}
+  updateAppointment(appointment: Appointment, checked: boolean) {
+    console.log(appointment);
+    console.log(checked);
+    appointment.present = checked; // Actualizează starea programării
+    this.appointmentService
+      .updateAppointment(appointment)
+      .subscribe((updatedAppointment) => {
+        console.log('Programarea a fost actualizată:', updatedAppointment);
+      });
+  }
 }
