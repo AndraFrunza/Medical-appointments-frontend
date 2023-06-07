@@ -14,8 +14,8 @@ import { DoctorService } from '../servicies/doctor.service';
   styleUrls: ['./medic-tabel-programari.component.css'],
 })
 export class MedicTabelProgramariComponent implements OnInit {
-  // checked = false;
   doctorId: any;
+  tratament: string = '';
   constructor(
     private appointmentService: AppointmentService,
     private authenticationService: AuthenticationService,
@@ -75,6 +75,7 @@ export class MedicTabelProgramariComponent implements OnInit {
     'weight',
     'height',
     'checked',
+    'trataments',
   ];
 
   dataSource = new MatTableDataSource<Appointment>();
@@ -88,6 +89,15 @@ export class MedicTabelProgramariComponent implements OnInit {
     console.log(appointment);
     console.log(checked);
     appointment.present = checked; // Actualizează starea programării
+    this.appointmentService
+      .updateAppointment(appointment)
+      .subscribe((updatedAppointment) => {
+        console.log('Programarea a fost actualizată:', updatedAppointment);
+      });
+  }
+
+  updateTrataments(appointment: Appointment) {
+    console.log(appointment);
     this.appointmentService
       .updateAppointment(appointment)
       .subscribe((updatedAppointment) => {

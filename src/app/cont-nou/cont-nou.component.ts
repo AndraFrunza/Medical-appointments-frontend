@@ -7,6 +7,9 @@ import { Doctor } from '../models/doctor';
 import { Cabinet } from '../models/cabinet';
 import { MatSelectChange } from '@angular/material/select';
 import { CabinetService } from '../servicies/cabinet.service';
+import { AuthenticationService } from '../servicies/authentication.service';
+import { first } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cont-nou',
@@ -23,7 +26,10 @@ export class ContNouComponent implements OnInit {
     private formBuilder: FormBuilder,
     private patientService: PatientService,
     private doctorService: DoctorService,
-    private cabinetService: CabinetService
+    private cabinetService: CabinetService,
+    private authenticationService: AuthenticationService,
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   registerForm: FormGroup = this.formBuilder.group({
@@ -84,11 +90,26 @@ export class ContNouComponent implements OnInit {
           lastName: this.registerForm.get('lastName')?.value,
           mobilePhone: this.registerForm.get('phone')?.value,
           email: this.registerForm.get('email')?.value,
+          password: '',
           roleId: 1,
         };
 
         this.patientService.postCreate(patient).subscribe((response) => {
           console.log('Contul de pacient a fost creat cu succes:', response);
+          this.authenticationService
+            .login(patient.email, patient.password)
+            .pipe(first())
+            .subscribe({
+              next: () => {
+                // get return url from query parameters or default to home page
+                const returnUrl =
+                  this.route.snapshot.queryParams['returnUrl'] || '/';
+                this.router.navigateByUrl(returnUrl);
+              },
+              error: (error) => {
+                console.log('error', error);
+              },
+            });
           this.submitStatus = true;
         });
       } else if (formData.role === 'doctor') {
@@ -99,6 +120,7 @@ export class ContNouComponent implements OnInit {
           lastName: this.registerForm.get('lastName')?.value,
           mobilePhone: this.registerForm.get('phone')?.value,
           email: this.registerForm.get('email')?.value,
+          password: '',
           cabinet: {
             id: this.registerForm.get('cabinet')?.value,
             name: '',
@@ -109,6 +131,20 @@ export class ContNouComponent implements OnInit {
         console.log(doctor);
         this.doctorService.postCreate(doctor).subscribe((response) => {
           console.log('Contul de doctor a fost creat cu succes:', response);
+          this.authenticationService
+            .login(doctor.email, doctor.password)
+            .pipe(first())
+            .subscribe({
+              next: () => {
+                // get return url from query parameters or default to home page
+                const returnUrl =
+                  this.route.snapshot.queryParams['returnUrl'] || '/';
+                this.router.navigateByUrl(returnUrl);
+              },
+              error: (error) => {
+                console.log('error', error);
+              },
+            });
           this.submitStatus = true;
         });
       }

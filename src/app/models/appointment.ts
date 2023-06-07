@@ -12,6 +12,7 @@ export interface Appointment {
   weight: number;
   height: number;
   present: boolean;
+  tratament: string;
   doctor: Doctor;
   patient: Patient;
 }

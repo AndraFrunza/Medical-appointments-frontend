@@ -158,6 +158,7 @@ export class CalendarComponent implements OnInit {
         doctor: this.selectedDoctor!,
         patient: this.patient!,
         present: false,
+        tratament: '',
       };
       console.log(appointment);
       this.errorMsg = '';
