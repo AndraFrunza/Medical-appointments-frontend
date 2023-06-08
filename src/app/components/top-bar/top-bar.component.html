@@ -14,25 +14,27 @@
   <button *ngIf="isPatient" routerLink="/contact" mat-button>Contact</button>
   <span class="example-center"></span>
 
-  <button *ngIf="isPatient" routerLink="/calendar" mat-button>Calendar</button>
+  <button *ngIf="isPatient" routerLink="/calendar" mat-button>
+    Programare
+  </button>
   <button *ngIf="isAdmin" routerLink="/admin-tabel-medici" mat-button>
-    Admin Tabel Medici
+    Medici
   </button>
   <button *ngIf="isAdmin" routerLink="/admin-tabel-pacienti" mat-button>
-    Admin Tabel Pacienti
+    Pacienti
   </button>
   <button *ngIf="isAdmin" routerLink="/admin-tabel-admini" mat-button>
-    Admin Tabel Admini
+    Admini
   </button>
   <button *ngIf="isAdmin" routerLink="/form-creare-admin" mat-button>
-    Adaugare admin
+    Adăugare admin
   </button>
   <button
     *ngIf="isMedic || isPatient || isAdmin"
     routerLink="/medic-tabel-programari"
     mat-button
   >
-    Medic Tabel Programari
+    Programările mele
   </button>
 
   <span class="example-spacer"></span>
@@ -47,6 +49,10 @@
     Programare
   </button>
 
-  <button *ngIf="!user" routerLink="/cart" mat-button>Logare</button>
-  <button *ngIf="user" (click)="logout()" mat-button>Delogare</button>
+  <button *ngIf="!user" routerLink="/cart" mat-button>
+    <strong>Logare</strong>
+  </button>
+  <button *ngIf="user" (click)="logout()" mat-button>
+    <strong>Delogare</strong>
+  </button>
 </mat-toolbar>
