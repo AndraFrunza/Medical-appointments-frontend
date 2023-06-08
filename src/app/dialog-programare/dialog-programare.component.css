@@ -1,1 +1,29 @@
+.dialog-title {
+  color: red;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 24px;
+}
 
+.dialog-content {
+  padding: 10px;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px;
+}
+
+.custom-close-button {
+  background-color: #f44336;
+  border-color: #f44336;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.custom-close-button:hover {
+  background-color: #d32f2f;
+}

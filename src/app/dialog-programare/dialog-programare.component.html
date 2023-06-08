@@ -1,7 +1,15 @@
-<h1 mat-dialog-title>Avertisment!</h1>
+<!-- <h1 mat-dialog-title>Avertisment!</h1>
 <div mat-dialog-content>
   Trebuie să vă creați un cont înainte de a putea efectua o programare.
 </div>
 <div mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Închide</button>
+</div> -->
+
+<h1 mat-dialog-title class="dialog-title"><strong>Avertisment!</strong></h1>
+<div mat-dialog-content class="dialog-content">
+  Trebuie să vă creați un cont înainte de a putea efectua o programare.
+</div>
+<div mat-dialog-actions class="dialog-actions" align="end">
+  <button class="custom-close-button" (click)="closeDialog()">Închide</button>
 </div>
