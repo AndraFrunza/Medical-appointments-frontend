@@ -129,7 +129,6 @@ export class CalendarComponent implements OnInit {
     }
   }
 
-  // Validare număr de telefon
   setPhoneValidation() {
     const phoneControl = this.registerForm.get('phone');
 
@@ -178,7 +177,6 @@ export class CalendarComponent implements OnInit {
     console.log(selection);
     if (selection.value) {
       const cabinetId = selection.value;
-      //call catre doctor
       this.doctorService
         .getByCabinetId(cabinetId)
         .subscribe((doctors: Doctor[]) => {
@@ -187,4 +185,14 @@ export class CalendarComponent implements OnInit {
         });
     }
   }
+
+  dateFilter = (date: Date) => {
+    const currentDate = new Date();
+
+    return (
+      date.getTime() >= currentDate.setHours(0, 0, 0, 0) &&
+      date.getDay() !== 0 &&
+      date.getDay() !== 6
+    );
+  };
 }

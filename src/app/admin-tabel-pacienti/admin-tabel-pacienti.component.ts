@@ -34,11 +34,3 @@ export class AdminTabelPacientiComponent implements OnInit {
     });
   }
 }
-
-// ngOnInit() {
-//   this.appointmentService
-//     .getAll()
-//     .subscribe((appointments: Appointment[]) => {
-//       this.dataSource.data = appointments;
-//     });
-// }

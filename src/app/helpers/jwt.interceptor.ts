@@ -18,7 +18,6 @@ export class JwtInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    // verifica daca e logat => daca are token
     const isLoggedIn = this.authenticationService.response?.token;
     const isApiUrl = request.url.startsWith('http://localhost:4000');
 

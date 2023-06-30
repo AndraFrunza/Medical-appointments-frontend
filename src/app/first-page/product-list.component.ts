@@ -23,6 +23,6 @@ export class ProductListComponent {
   }
 
   isLoggedOut() {
-    return !this.user; // Verificați dacă utilizatorul este null sau undefined pentru a determina dacă este delogat
+    return !this.user;
   }
 }

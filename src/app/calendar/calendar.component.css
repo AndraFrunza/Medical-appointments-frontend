@@ -9,7 +9,6 @@
 }
 
 .div_calendar {
-  /* float: left; */
   margin-top: 115px;
   margin-left: 20px;
 }
@@ -35,7 +34,6 @@ button {
   width: 500px;
   height: 770px;
   margin-left: 350px;
-  /* background-color: #abd2f1; */
   background-color: #abd2f1b0;
   margin-top: -830px;
   margin-left: 730px;

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogProgramareComponent } from 'src/app/dialog-programare/dialog-programare.component';
 import { AuthenticationService } from 'src/app/servicies/authentication.service';
@@ -51,6 +50,6 @@ export class TopBarComponent {
     });
   }
   isLoggedOut() {
-    return !this.user; // Verificați dacă utilizatorul este null sau undefined pentru a determina dacă este delogat
+    return !this.user;
   }
 }

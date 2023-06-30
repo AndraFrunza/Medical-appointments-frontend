@@ -24,6 +24,7 @@ export class MedicTabelProgramariComponent implements OnInit {
     private doctorService: DoctorService
   ) {}
   user: User | undefined;
+
   ngOnInit() {
     this.authenticationService.authenticationResponse.subscribe(
       (x) => (this.user = x?.user)

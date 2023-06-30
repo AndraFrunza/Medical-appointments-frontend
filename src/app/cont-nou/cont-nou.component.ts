@@ -57,7 +57,6 @@ export class ContNouComponent implements OnInit {
     });
   }
 
-  // Validare număr de telefon
   setPhoneValidation() {
     const phoneControl = this.registerForm.get('phone');
 
@@ -101,7 +100,6 @@ export class ContNouComponent implements OnInit {
             .pipe(first())
             .subscribe({
               next: () => {
-                // get return url from query parameters or default to home page
                 const returnUrl =
                   this.route.snapshot.queryParams['returnUrl'] || '/';
                 this.router.navigateByUrl(returnUrl);
@@ -136,7 +134,6 @@ export class ContNouComponent implements OnInit {
             .pipe(first())
             .subscribe({
               next: () => {
-                // get return url from query parameters or default to home page
                 const returnUrl =
                   this.route.snapshot.queryParams['returnUrl'] || '/';
                 this.router.navigateByUrl(returnUrl);
